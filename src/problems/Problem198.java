@@ -17,9 +17,29 @@ public class Problem198 {
 
     public static void main(String[] args) {
 
+        int[] nums = {2,7,8,6,1,9,11,5};
+        System.out.println(rob(nums));
     }
 
-//    public int rob(int[] nums) {
-//
-//    }
+    public static int rob(int[] nums) {
+
+        return recOpt(nums.length-1,nums);
+
+    }
+
+
+    /**
+     * 递归实现
+     */
+    private static int recOpt(int i ,int[] nums){
+
+        //i==0和i==1为递归的出口
+        if(i==0){
+            return nums[0];
+        }else if (i==1){
+            return Math.max(nums[0],nums[1]);
+        }else {
+            return Math.max(recOpt(i-1,nums),nums[i]+recOpt(i-2,nums));
+        }
+    }
 }

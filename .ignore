@@ -10,6 +10,10 @@ buildNumber.properties
 .mvn/timing.properties
 
 # Compiled class files
+
+
+
+
 *.class
 
 # Log Files
