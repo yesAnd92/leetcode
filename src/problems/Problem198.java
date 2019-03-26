@@ -17,29 +17,62 @@ public class Problem198 {
 
     public static void main(String[] args) {
 
-        int[] nums = {2,7,8,6,1,9,11,5};
+        int[] nums = {};
         System.out.println(rob(nums));
     }
 
     public static int rob(int[] nums) {
 
-        return recOpt(nums.length-1,nums);
+//        return recOpt(nums.length-1,nums);
 
+        return dpOpt(nums);
     }
 
 
     /**
-     * 递归实现
+     * 递归实现 ，leetcode执行会超时 java.lang.StackOverflowError
      */
-    private static int recOpt(int i ,int[] nums){
+    private static int recOpt(int i, int[] nums) {
 
         //i==0和i==1为递归的出口
-        if(i==0){
+        if (i == 0) {
             return nums[0];
-        }else if (i==1){
-            return Math.max(nums[0],nums[1]);
-        }else {
-            return Math.max(recOpt(i-1,nums),nums[i]+recOpt(i-2,nums));
+        } else if (i == 1) {
+            return Math.max(nums[0], nums[1]);
+        } else {
+            return Math.max(recOpt(i - 1, nums), nums[i] + recOpt(i - 2, nums));
         }
+    }
+
+
+    /* *
+     * 动态规划
+     * @author wangyj
+     * @date 2019/3/26 16:51
+     * @param [nums]
+     * @return int
+     */
+    private static int dpOpt(int[] nums) {
+        int length = nums.length;
+        int[] result = new int[length];
+        if (length == 0) {
+            return 0;
+        } else if (length == 1) {
+            //只有1个元素
+            return result[0] = nums[0];
+        } else if (length == 2) {
+            //只有2个元素
+            result[0] = nums[0]; //首先计算出起始值
+            result[1] = Math.max(nums[0], nums[1]);
+            return result[1];
+        }
+        result[0] = nums[0]; //首先计算出起始值
+        result[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < length; i++) {
+            int a = nums[i] + result[i - 2];
+            int b = result[i - 1];
+            result[i] = Math.max(a, b);
+        }
+        return result[length - 1];
     }
 }
