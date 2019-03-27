@@ -13,7 +13,7 @@ package problems;
  * @author wangyj
  * @date 2019/3/25 17:06
  */
-public class Problem198 {
+public class HouseRobber198 {
 
     public static void main(String[] args) {
 
