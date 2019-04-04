@@ -21,7 +21,7 @@ buildNumber.properties
 
 # About IntelliJ
 *.iml
-/.idea/
+.idea/
 /out/
 
 # BlueJ files
