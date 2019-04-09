@@ -22,7 +22,7 @@ public class UniquePaths62 {
 
     public static void main(String[] args) {
 
-        System.out.println(uniquePaths(7,3));
+        System.out.println(dpOpt(7,3));
     }
 
     /**
@@ -48,6 +48,32 @@ public class UniquePaths62 {
 
         for (int i=2;i<=m;i++){
             for (int j=2;j<=n;j++){
+                opt[i][j]=opt[i][j-1]+opt[i-1][j];
+            }
+        }
+        return opt[m][n];
+    }
+
+    /**
+     * 接上，可以在边界初始化上优化，减少循环数量
+     */
+    public static int dpOpt(int m, int n) {
+
+        int[][] opt =new int[m+1][n+1];
+
+        if (m==1&&n==1){
+            return 1;
+        }
+        for (int i=1;i<=m;i++){
+            for (int j=1;j<=n;j++){
+                if (i==1){
+                    //opt[][]第一行的的值都是1
+                    opt[i][j-1]=1;
+                }
+                if (j==1){
+                    //opt[][]第一列的的值都是1
+                    opt[i-1][j]=1;
+                }
                 opt[i][j]=opt[i][j-1]+opt[i-1][j];
             }
         }
