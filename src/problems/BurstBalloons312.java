@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /* *
  * https://leetcode.com/problems/burst-balloons/
+ * 问题分析：https://www.youtube.com/watch?v=z3hu2Be92UA
  * 题目详情见链接
  * @author wangyj
  * @date 2019/4/10
@@ -12,56 +13,43 @@ public class BurstBalloons312 {
 
     public static void main(String[] args) {
 
-        int[] nums= new int[]{3,1,5,8};
+        int[] nums= new int[]{};
         System.out.println(maxCoins(nums));
-        System.out.println(maxCoins2(nums));
+//        System.out.println(maxCoins2(nums));
     }
 
     public static int maxCoins(int[] nums) {
 
         int length = nums.length;
 
+        if (length==0)return 0;
         //opt[i][j]表示从i气球到j气球中能够获取的最大收益
         int[][] opt = new int[length+1][length+1];
-        for (int count =0; count < length; count++) {
-            for (int i =0;  i+count< length; i++) {
-                int j=i+count;
+        for (int n =0; n < length; n++) {
+            //外层循环作用是先计算出最小的子问题，再计算包含子问题的问题，
+            // 即先计算一个球、然后两个气球...
+            for (int i =0;  i< length-n; i++) {
+                int j=i+n;
                 for (int k = i; k <=j; k++) {
-                    //当前位置左边的元素，k=-1 置为1
-                    int left=k-1<0?1:nums[k-1];
-                    //当前位置左边的元素，k=length 置为1
-                    int right=k+1==length?1:nums[k+1];
-                    opt[i][j]=Math.max(opt[i][j],opt[i][k]+opt[k+1][j]+left*nums[k]*right);
+                    /**
+                     * 假设只保留k位置的气球不打破，i到k-1和k+1到j的气球打破，
+                     * 则最后打破k的总收益为opt[i][k+1]+opt[k+1][j]+nums[i-1]*nums[k]*nums[j+1];
+                     * 状态转移方程为 opt[i][j]=max{opt[i][j],opt[i][k+1]+opt[k+1][j]+nums[i-1]*nums[k]*nums[j+1]}
+                     */
+                    int left=i-1<0?1:nums[i-1];  //当前位置左端的元素，k=-1 置为1
+                    int right=j+1==length?1:nums[j+1];//当前位置左端的元素，k=length 置为1
+                    opt[i][j]=Math.max(opt[i][j],getOpt(opt,i,k-1)+getOpt(opt,k+1,j)+left*nums[k]*right);
                     System.out.println("opt["+i+"]["+j+"]="+opt[i][j]);
                 }
             }
-//            System.out.println ( Arrays.toString (opt[i]));
         }
-//        for (int i=0;i<3;i++)
         return opt[0][length-1];
     }
 
-
-    public static int maxCoins2(int[] nums) {
-        int n = nums.length + 2;
-        int []a = new int[n];
-        a[0] = 1;
-        a[n - 1] = 1;
-        for (int i = 0; i < n - 2; i ++) {
-            a[i + 1] = nums[i];
+    private static int getOpt(int[][] opt ,int start,int end ){
+        if (start>end){
+            return 0;
         }
-        int [][]dp = new int[n][n];
-        for (int l = 2; l < n; l ++) {
-            for (int i = 0; i + l < n; i ++) {
-                int j = i + l;
-                for (int k = i + 1; k < j; k ++) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i][k] + dp[k][j] + a[i] * a[j] * a[k]);
-                    System.out.println("dp["+i+"]["+j+"]="+dp[i][j]);
-                }
-            }
-        }
-        for (int l=0;l<n;l++)
-            System.out.println ( Arrays.toString (dp[l]));
-        return dp[0][n - 1];
+        return opt[start][end];
     }
 }
