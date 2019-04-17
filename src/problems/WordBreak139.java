@@ -2,6 +2,15 @@ package problems;
 
 import java.util.*;
 
+/**
+ * https://leetcode.com/problems/word-break/
+ * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+ *
+ * Note:
+ *
+ * The same word in the dictionary may be reused multiple times in the segmentation.
+ * You may assume the dictionary does not contain duplicate words.
+ */
 public class WordBreak139 {
     public static void main(String[] args) {
         List<String> wordDict = Arrays.asList("apple", "pen");
@@ -17,8 +26,9 @@ public class WordBreak139 {
         opt[0]=true;
         for(int i=1;i<=length;i++){
             for (int j=0;j<i;j++){
+                //从下标j-->i的子串串是否可以用wordDict的元素表示
                 boolean contain =wordDict.contains(s.substring(j,i));
-                if (opt[j]&&contain){
+                if (opt[j]&&contain){  //j前后的子串都可以被wordDict组成
                     opt[i]=true;
                     break;
                 }
