@@ -1,4 +1,4 @@
-package problems;
+package problems.dynamic_programming;
 
 /**
  * https://leetcode.com/problems/minimum-path-sum/

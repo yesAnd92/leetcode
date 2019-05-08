@@ -1,4 +1,4 @@
-package problems;
+package problems.dynamic_programming;
 
 import java.util.*;
 
