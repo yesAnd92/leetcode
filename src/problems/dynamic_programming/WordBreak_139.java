@@ -11,7 +11,7 @@ import java.util.*;
  * The same word in the dictionary may be reused multiple times in the segmentation.
  * You may assume the dictionary does not contain duplicate words.
  */
-public class WordBreak139 {
+public class WordBreak_139 {
     public static void main(String[] args) {
         List<String> wordDict = Arrays.asList("apple", "pen");
         System.out.println(wordBreak2("applepenapple", wordDict));

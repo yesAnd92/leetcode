@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author wangyj
  * @date 2019/4/10
  */
-public class BurstBalloons312 {
+public class BurstBalloons_312 {
 
     public static void main(String[] args) {
 

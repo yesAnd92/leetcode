@@ -8,7 +8,7 @@ package problems.dynamic_programming;
  *  Output: 6
  *  Explanation: [4,-1,2,1] has the largest sum = 6
  */
-public class MaximumSubarray53 {
+public class MaximumSubarray_53 {
 
 
     public static void main(String[] args) {

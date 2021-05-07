@@ -12,7 +12,7 @@ import java.util.Stack;
  * the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem,
  * assume that your function returns 0 when the reversed integer overflows.
  */
-public class ReverseInteger7 {
+public class ReverseInteger_7 {
 
 
     public static void main(String[] args) {

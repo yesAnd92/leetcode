@@ -18,7 +18,7 @@ package problems.dynamic_programming;
  * @author wangyj
  * @date 2019/4/9
  */
-public class UniquePaths62 {
+public class UniquePaths_62 {
 
     public static void main(String[] args) {
 

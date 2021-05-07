@@ -17,7 +17,7 @@ package problems.dynamic_programming;
  * @User wangyj
  * @Date 2019/4/8  9:26 PM
  */
-public class BestTimetoBuyandSellStock121 {
+public class BestTimetoBuyandSellStock_121 {
 
     public static void main(String[] args) {
         int[] pices = new int[]{2,1,2,1,0,1,2};

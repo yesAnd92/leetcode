@@ -14,7 +14,7 @@ package problems.dynamic_programming;
  * @author wangyj
  * @date 2019/4/3
  */
-public class ClimbingStairs70 {
+public class ClimbingStairs_70 {
 
     public static void main(String[] args) {
 

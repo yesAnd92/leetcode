@@ -1,4 +1,4 @@
-package problems.LinkedList;
+package problems.Linked_list;
 
 /* *
  * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing
@@ -7,7 +7,7 @@ package problems.LinkedList;
  *  Input: 1->2->4, 1->3->4
  *  Output: 1->1->2->3->4->4
  */
-public class MergeTwoSortedLists21 {
+public class MergeTwoSortedLists_21 {
 
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);

@@ -7,7 +7,7 @@ package problems.dynamic_programming;
  * right which minimizes the sum of all numbers along its path.
  * Note: You can only move either down or right at any point in time.
  */
-public class MinimumPathSum64 {
+public class MinimumPathSum_64 {
 
 
     public static void main(String[] args) {
