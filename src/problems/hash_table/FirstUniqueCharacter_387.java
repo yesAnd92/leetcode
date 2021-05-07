@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
+ * https://leetcode-cn.com/problems/first-unique-character-in-a-string/
  * @Author W.Y.J
  * @Date 2021/5/7 23:01
  */
@@ -36,7 +37,7 @@ public class FirstUniqueCharacter_387 {
         char[] ch= new char[26];
         //第一次遍历统计统计出各个字符出现的次数,但是不使用map，提高性能
         for (int i = 0; i < str.length(); i++) {
-
+            //-‘a’是为了计算字符 a、b、c在ch中的下标
             ch[str.charAt(i)-'a']++;
         }
 
