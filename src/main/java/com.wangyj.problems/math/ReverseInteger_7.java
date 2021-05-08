@@ -1,4 +1,4 @@
-package problems.math;
+package com.wangyj.problems.math;
 
 import java.util.Stack;
 

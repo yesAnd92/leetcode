@@ -1,4 +1,4 @@
-package problems.linked_list;
+package com.wangyj.problems.linked_list;
 
 /* *
  * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing

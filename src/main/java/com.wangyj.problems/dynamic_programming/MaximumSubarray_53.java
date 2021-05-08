@@ -1,4 +1,4 @@
-package problems.dynamic_programming;
+package com.wangyj.problems.dynamic_programming;
 
 /**
  * Given an integer array nums, find the contiguous subarray (containing at least one number)

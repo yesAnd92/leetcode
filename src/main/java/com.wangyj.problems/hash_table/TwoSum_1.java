@@ -1,4 +1,4 @@
-package problems.hash_table;
+package com.wangyj.problems.hash_table;
 
 
 import java.util.Hashtable;

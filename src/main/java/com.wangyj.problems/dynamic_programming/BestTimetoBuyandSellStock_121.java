@@ -1,4 +1,4 @@
-package problems.dynamic_programming;
+package com.wangyj.problems.dynamic_programming;
 
 
 /**
