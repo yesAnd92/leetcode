@@ -34,6 +34,8 @@ public class removeNthNodeFromEndOfList_19 {
     }
 
 
+
+
     /**
      * 快慢指针法
      * 这道题最容易想到的时两次循环，第一次计算链表长度，计算出要删除的节点位置，第二次遍历删除。
@@ -42,8 +44,15 @@ public class removeNthNodeFromEndOfList_19 {
      * 必须在完整遍历的同时，有另外一个指针记录倒数第N个节点位置，考虑双指针遍历。
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        //要删除一个节点，无非就是将这个节点的前驱直接指向这个节点的后继，
-        // 为了代码兼容需要删除的是第一个节点，在头节点上加一个哑节点
+        /**
+         * 在对链表进行操作时，一种常用的技巧是添加一个哑节点（dummy node），它的 \textit{next}next 指针指向链表的头节点。
+         * 这样一来，我们就不需要对头节点进行特殊的判断了。
+         *
+         * 例如，在本题中，如果我们要删除节点 yy，我们需要知道节点 yy 的前驱节点 xx，并将 xx 的指针指向 yy 的后继节点。
+         * 但由于头节点不存在前驱节点，因此我们需要在删除头节点时进行特殊判断。但如果我们添加了哑节点，
+         * 那么头节点的前驱节点就是哑节点本身，此时我们就只需要考虑通用的情况即可。
+         *
+         */
         ListNode dummyNode = new ListNode(-1);
         dummyNode.next=head;
         ListNode fast = dummyNode;
