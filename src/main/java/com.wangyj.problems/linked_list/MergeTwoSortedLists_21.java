@@ -67,13 +67,4 @@ public class MergeTwoSortedLists_21 {
         }
         System.out.println();
     }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }

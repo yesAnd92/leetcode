@@ -13,26 +13,6 @@ import java.util.Stack;
  */
 public class ReverseNodesInKGroup_25 {
 
-    /**
-     * 自定义链表结构
-     */
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
 
     /**
      * 利用栈结构进行反转

@@ -14,29 +14,6 @@ public class removeNthNodeFromEndOfList_19 {
 
 
     /**
-     * 自定义链表结构
-     */
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-
-
-
-    /**
      * 快慢指针法
      * 这道题最容易想到的时两次循环，第一次计算链表长度，计算出要删除的节点位置，第二次遍历删除。
      * 但是如果想要一次遍历就得到结果怎么办？
@@ -89,6 +66,7 @@ public class removeNthNodeFromEndOfList_19 {
             System.out.println(result.val);
             result = result.next;
         }
+
     }
 
 }
