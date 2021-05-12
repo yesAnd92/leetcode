@@ -2,7 +2,9 @@ package com.wangyj.problems.linked_list;
 
 import org.junit.Test;
 
-import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -23,8 +25,8 @@ public class ReverseNodesInKGroup_25 {
         Stack<ListNode> stack = new Stack();
         while (head != null) {
             ListNode tmp = head;
-            head=head.next;
-            tmp.next=null;//要讲下一个节点置空
+            head = head.next;
+            tmp.next = null;//要讲下一个节点置空
             //遍历放到栈中
             stack.push(tmp);
             //当栈容量大小=k时，需要反转
@@ -32,44 +34,51 @@ public class ReverseNodesInKGroup_25 {
                 while (!stack.empty()) {
                     //依次将栈中的元素添加
                     nextNode.next = stack.pop();
-                    nextNode=nextNode.next;
+                    nextNode = nextNode.next;
                 }
             }
         }
         //兼容k刚好等分链表，栈容量0的情况
-        if (stack.size()==0)return dummy.next;
+        if (stack.size() == 0) return dummy.next;
         //最后剩余节点小于k,单独处理,注意正序栈中元素
         ListNode tail = stack.pop();
         while (!stack.empty()) {
             ListNode right = stack.pop();
-            right.next=tail;
-            tail=right;
+            right.next = tail;
+            tail = right;
         }
-        nextNode.next=tail;
+        nextNode.next = tail;
+        return dummy.next;
+    }
+
+
+    /**
+     * 利用栈结构进行反转
+     */
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        ListNode dummy = new ListNode();
+        ListNode pre = head;
+        ListNode end = head;//记录每次累计到k，需要反转的位置
+        while (end != null) {
+            //当k个节点时，需要反转
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+
+
+        }
+
         return dummy.next;
     }
 
 
     @Test
     public void test() {
-        ListNode n1=new ListNode(3);
-        ListNode n2=new ListNode(6);
-        ListNode n3=new ListNode(9);
-        ListNode n4=new ListNode(1);
-        ListNode n5=new ListNode(1);
-        ListNode n6=new ListNode(4);
-        ListNode n7=new ListNode(7);
-        n1.next=n2;
-        n2.next=n3;
-        n3.next=n4;
-        n4.next=n5;
-        n5.next=n6;
-        n6.next=n7;
+        List<Integer> list = new ArrayList<>();
+        ListNode n1 = ListNodeUtil.convert2ListNode(1, 2, 3, 4, 5, 6, 7, 8, 9);
         ListNode result = reverseKGroup(n1, 4);
-        while (result != null) {
-            System.out.println(result.val);
-            result = result.next;
-        }
+
+        ListNodeUtil.print(result);
 
     }
 
