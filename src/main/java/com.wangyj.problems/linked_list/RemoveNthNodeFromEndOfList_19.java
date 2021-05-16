@@ -10,7 +10,7 @@ import java.awt.*;
  * @author W.Y.J
  * @Date 2021/5/8 21:11
  */
-public class removeNthNodeFromEndOfList_19 {
+public class RemoveNthNodeFromEndOfList_19 {
 
 
     /**
