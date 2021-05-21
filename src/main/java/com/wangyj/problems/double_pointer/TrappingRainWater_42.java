@@ -59,7 +59,29 @@ public class TrappingRainWater_42 {
          * 在解法一的基础上，很容易想到去优化，因为在寻找左右两边最大值时，有大量的重复操作
          * 可以使用动态规划的思想，将某个区间范围内的最大值记录下来，用空间换时间
          */
+
+        int length = height.length;
+        if (length==0)return 0;
         int ans = 0;
+        //定义一个数组leftMax[i]表示0-i区间内最大的值
+        int[] leftMax=new int[length];
+        leftMax[0]=0;
+        //定义一个数组rightMax[i]表示i-length-1区间内最大的值
+        int[] rightMax=new int[length];
+        rightMax[length-1]=0;
+        //分别给两个数组初始化
+        for (int i = 1; i < length; i++) {
+            leftMax[i]=Math.max(height[i-1],leftMax[i-1]);
+        }
+        for (int i = length-2; i >=0; i--) {
+            rightMax[i]=Math.max(height[i+1],rightMax[i+1]);
+        }
+        //累加雨量
+        for (int i = 0; i < length; i++) {
+            //取左右两边最小的数，减去自身的数就是能够接到的雨量数
+            int sum = Math.min(leftMax[i], rightMax[i]) - height[i];
+            ans += sum >0?sum:0;
+        }
         return ans;
     }
 
@@ -71,7 +93,8 @@ public class TrappingRainWater_42 {
          * {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1} --> 6
          * {4,2,0,3,2,5} -->9
          */
-        int[] height = new int[]{10, 2, 3};
-        System.out.println(trap(height));
+//        int[] height = new int[]{10, 2, 3};
+        int[] height = new int[]{1};
+        System.out.println(trap2(height));
     }
 }
