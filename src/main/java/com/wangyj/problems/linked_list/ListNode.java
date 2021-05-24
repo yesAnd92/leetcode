@@ -4,8 +4,8 @@ package com.wangyj.problems.linked_list;
  * 自定义链表结构
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     ListNode() {
     }
