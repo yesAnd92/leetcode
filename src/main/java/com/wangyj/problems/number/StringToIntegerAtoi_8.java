@@ -1,4 +1,4 @@
-package com.wangyj.problems.string;
+package com.wangyj.problems.number;
 
 import org.junit.Test;
 
