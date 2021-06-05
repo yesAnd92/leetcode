@@ -54,7 +54,7 @@ public class Permutations_46 {
     @Test
     public void test(){
 //        int[] nums = new int[]{1,2,3};
-        int[] nums = new int[]{1};
+        int[] nums = new int[]{1,3,4};
         List<List<Integer>> permute = permute(nums);
         for (List<Integer> ints : permute) {
             for (int anInt : ints) {
