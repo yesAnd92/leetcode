@@ -1,9 +1,16 @@
-package com.wangyj.problems.heap;
+package com.wangyj.problems.sort;
 
 import org.junit.Test;
 
 import java.util.Arrays;
 
+
+
+/**
+ * 快排
+ * @author W.Y.J
+ * @Date 2021/7/4 10:10 上午
+ */
 public class QuickSort {
 
     private void swap(int[] arr,int a,int b){
@@ -57,6 +64,7 @@ public class QuickSort {
     }
     /*******************************************双向快排**************************************************/
 
+    //参考  https://zhuanlan.zhihu.com/p/102290441
 
     @Test
     public void testDoubleQuickSort(){
@@ -114,33 +122,5 @@ public class QuickSort {
 
 
 
-    /*******************************************冒泡排序*************************************************/
-    @Test
-    public void demo(){
-        int[] arr= {5, 9, 4, 6, 5, 3,7};
-//        partition(arr,0,arr.length-1);
-        popSort(arr);
-        Arrays.stream(arr).forEach(System.out::print);
-    }
 
-
-    /**
-     * 冒泡排序
-     * @author W.Y.J
-     * @Date 2021/7/2 11:27 下午
-     * @param arr
-     * @return void
-     */
-    public void popSort(int[] arr){
-        int length = arr.length;
-        for (int i =0;i<length;i++){
-            //先找出最大的放到最后
-            for (int j =0;j<length-i-1;j++)
-            if(arr[j]>arr[j+1]){
-                int swap = arr[j+1];
-                arr[j+1]=arr[j];
-                arr[j]=swap;
-            }
-        }
-    }
 }
