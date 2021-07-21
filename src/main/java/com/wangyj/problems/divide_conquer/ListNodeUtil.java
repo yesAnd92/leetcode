@@ -1,4 +1,4 @@
-package com.wangyj.problems.devide_conquer;
+package com.wangyj.problems.divide_conquer;
 
 
 
