@@ -13,6 +13,13 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
+
+    /**
+     * 归并排序的主要思想就是分治，
+     * 通过递归把数组分成N个小数组，每个数组只包含一个元素，这样每个部分都是有序的
+     * 之后问题就转换为合并两个有序数组了，挨个元素比较，小的放到前边
+     * @param arr
+     */
     public void mergeSort(int[] arr) {
         divide(arr, 0, arr.length - 1);
     }
@@ -33,6 +40,7 @@ public class MergeSort {
     //将两个有序数列a1[left...mid]和a2[mid+1...right]合并
     private void merge(int[] arr, int left, int mid, int right) {
 
+        //存储合并的临时结果
         int[] tmp = new int[right - left + 1];
         //i是数组a1的左端点，j是a2的左端点
         int i = left, j = mid + 1;
