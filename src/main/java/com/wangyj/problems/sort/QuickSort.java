@@ -94,16 +94,23 @@ public class QuickSort {
         }
     }
 
+    /**
+     * 这个方法的作用就是将传入的区间分为两个子区间，并返回分隔点下标
+     */
     private int doublePartitions(int[] arr, int begin, int end) {
         int left = begin;
         int right =end;
         int pivot=arr[begin];
         while (left!=right){
             /**
-             * 先从右遍历和先从左遍历不同，先从右遍历，最终相等的位置正好是最后一个小于pivot的位置，
-             * 反过来则最终相等的位置是最后一个大于pivot的位置（因为相等就不再移动，故谁先移动，谁就能夺走一步）
-             * 因为使用第一个元素（未必是整个数组的第一个）作为支点，最后要交换最后一个小于支点的值，而不能交换最后一个大于支点的值
-             * 故先从右边开始遍历
+             * 先从右遍历和先从左遍历不同
+             * 假设先从右遍历，left\right最终相等的位置对应的值一定是比pivot值小，因为如果arr[right]>=pivot，
+             * right会继续左移（因为相等就不再移动，故谁先移动，谁就能多走一步）。因为最后arr[right]要和支点交换值，而arr[right]是比pivot小的值,
+             * 这就决定了arr[right]只能交换到左边，也就是必须用左端的元素作为支点。
+             *
+             * 反之也是同样的道理：选用右端点作为支点，必须先遍历左边
+             *
+             * 还有一个要点是  如果选用左端元素作为支点，等值条件应该归属到左边（arr[left]<=pivot），也即自身不需要交换，跳过
              */
             while (left<right&&arr[right]>pivot)
                 right--;
