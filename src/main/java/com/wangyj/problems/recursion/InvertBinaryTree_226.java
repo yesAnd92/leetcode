@@ -1,6 +1,8 @@
 package com.wangyj.problems.recursion;
 
 
+import com.wangyj.problems.common.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.Queue;
 
@@ -17,7 +19,7 @@ public class InvertBinaryTree_226 {
      * 递归---深度优先遍历
      *
      * @param root
-     * @return com.wangyj.problems.recursion.TreeNode
+     * @return com.wangyj.problems.common.TreeNode
      * @author W.Y.J
      * @Date 2021/7/9 11:23
      */
@@ -41,7 +43,7 @@ public class InvertBinaryTree_226 {
      * 迭代---广度优先遍历
      *
      * @param root
-     * @return com.wangyj.problems.recursion.TreeNode
+     * @return com.wangyj.problems.common.TreeNode
      * @author W.Y.J
      * @Date 2021/7/9 11:23
      */

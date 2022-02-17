@@ -1,7 +1,7 @@
 package com.wangyj.problems.recursion;
 
 
-import org.junit.Test;
+import com.wangyj.problems.common.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;

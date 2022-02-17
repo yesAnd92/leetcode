@@ -1,6 +1,7 @@
-package com.wangyj.problems.recursion;
+package com.wangyj.problems.common;
 
 
+import com.wangyj.problems.common.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayDeque;
@@ -19,7 +20,7 @@ public class Array2BtUtils {
      * 使用广度优先遍历，遍历时构建树结构并赋值
      *
      * @param nums
-     * @return com.wangyj.problems.recursion.TreeNode
+     * @return com.wangyj.problems.common.TreeNode
      * @author W.Y.J
      * @Date 2021/7/10 10:41 上午
      */

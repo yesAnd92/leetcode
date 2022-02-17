@@ -1,5 +1,7 @@
 package com.wangyj.problems.recursion;
 
+import com.wangyj.problems.common.TreeNode;
+
 /**
  * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
  *
