@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class BinaryTreeInorderTraversal_94 {
 
-    public List<Integer> preorderTraversal(TreeNode head) {
+    public List<Integer> inorderTraversal(TreeNode head) {
         List<Integer> res = new ArrayList<>();
         if (head == null) return res;
 
@@ -56,6 +56,6 @@ public class BinaryTreeInorderTraversal_94 {
     @Test
     public void test() {
         TreeNode head = Array2BtUtils.array2BT(new Integer[]{1, 2, 5, 3, 4, null, 6, 7});
-        System.out.println(preorderTraversal(head));
+        System.out.println(inorderTraversal(head));
     }
 }
