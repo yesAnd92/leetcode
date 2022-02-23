@@ -25,7 +25,6 @@ public class MergeSort {
     }
 
     private void divide(int[] arr, int left, int right) {
-
         if (left < right) {
             int mid = (left + right) >> 1;
             //左右两边的进行分别排序
@@ -40,6 +39,7 @@ public class MergeSort {
     //将两个有序数列a1[left...mid]和a2[mid+1...right]合并
     private void merge(int[] arr, int left, int mid, int right) {
 
+        //通过这个日志可以看出递归过程中，divide和merge的调用顺序
         System.out.println("合并"+left+"->"+mid+","+(mid+1)+"->"+right);
         //存储合并的临时结果
         int[] tmp = new int[right - left + 1];
