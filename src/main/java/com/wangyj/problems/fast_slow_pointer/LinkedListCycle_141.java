@@ -1,7 +1,7 @@
 package com.wangyj.problems.fast_slow_pointer;
 
 
-import com.wangyj.problems.linked_list.ListNode;
+import com.wangyj.problems.common.ListNode;
 
 /**
  * https://leetcode-cn.com/problems/linked-list-cycle/

@@ -1,8 +1,7 @@
 package com.wangyj.problems.linked_list;
 
+import com.wangyj.problems.common.ListNode;
 import org.junit.Test;
-
-import java.awt.*;
 
 /**
  * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/

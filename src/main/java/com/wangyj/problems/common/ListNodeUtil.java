@@ -1,9 +1,9 @@
-package com.wangyj.problems.linked_list;
+package com.wangyj.problems.common;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-class ListNodeUtil {
+public class ListNodeUtil {
 
     public static ListNode convert2ListNode(List<Integer> list ){
         ListNode dummyHead =new ListNode(); //创建一个哑的首节点

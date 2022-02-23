@@ -1,5 +1,7 @@
 package com.wangyj.problems.linked_list;
 
+import com.wangyj.problems.common.ListNode;
+
 /* *
  * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing
  * together the nodes of the first two lists.

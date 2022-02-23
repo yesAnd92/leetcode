@@ -1,9 +1,10 @@
 package com.wangyj.problems.linked_list;
 
+import com.wangyj.problems.common.ListNode;
+import com.wangyj.problems.common.ListNodeUtil;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 

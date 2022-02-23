@@ -1,5 +1,6 @@
 package com.wangyj.problems.linked_list;
 
+import com.wangyj.problems.common.ListNode;
 import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/add-two-numbers/
@@ -8,7 +9,7 @@ import org.junit.Test;
  */
 public class AddTwoNumbers_2 {
 
-    public  ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode result = new ListNode();
         ListNode head  =result;
         //对照位值相加，考虑进位问题
