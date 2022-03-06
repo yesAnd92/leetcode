@@ -59,32 +59,48 @@ public class ReverseInteger_7 {
     }
 
 
-
     /**
      * 对上边的堆栈优化一下，即不用存放每个数字的大小,每次都计算好结果值
+     *
      * @author W.Y.J
      * @Date 2021/5/29 16:21
      */
-    public  int reverse2(int x) {
-        //特判
-        if (x==-2147483648){
-            return 0;
+    public int reverse2(int x) {
+        int res = 0;
+        while (x != 0) {
+            //每次取末尾数字
+            int tmp = x % 10;
+            //判断是否 大于 最大32位整数
+            if (res > 214748364 || (res == 214748364 && tmp > 7)) {
+                return 0;
+            }
+            //判断是否 小于 最小32位整数
+            if (res < -214748364 || (res == -214748364 && tmp < -8)) {
+                return 0;
+            }
+            res = res * 10 + tmp;
+            x /= 10;
         }
-        int isNegative=1;
-        if (x<0){
-            isNegative=-1;
-            x=-x;
-        }
-
-        Long ans=0L;
-
-        while (x!=0){
-            ans=ans*10+x%10;
-            x=x/10;
-        }
-        return ans>Integer.MAX_VALUE?0:(ans.intValue()*isNegative);
+        return res;
     }
 
+
+    public int reverse3(int x) {
+        long result = 0L;
+        //注意这里要考虑负数问题，不能写成x>0
+        while (x != 0) {
+            //求末尾一个数
+            int mod = x % 10;
+            //不用记录先求出的数字顺序，字节累加到最后的结果
+            result = result * 10 + mod;
+            //整除10，舍去最后一位
+            x /= 10;
+            if (result>Integer.MAX_VALUE||result<Integer.MIN_VALUE){
+                return 0;
+            }
+        }
+        return (int) result;
+    }
 
     @Test
     public void test() {
