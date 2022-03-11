@@ -12,7 +12,7 @@ import java.util.List;
  * @author W.Y.J
  * @Date 2021/8/8 12:36 下午
  */
-public class pascalsTriangle_118 {
+public class PascalsTriangle_118 {
 
     public List<List<Integer>> generate(int numRows) {
 

@@ -22,6 +22,7 @@ public class AlternateOutput {
 
     /**
      * 使用自旋锁
+     *
      * @author W.Y.J
      * @Date 2022/3/9 16:11
      */
@@ -35,7 +36,7 @@ public class AlternateOutput {
                     if (change.get() == 0) {
                         System.out.print(zimu[i]);
                         if (i < min) {
-                            change.set(1);
+                            change.set(1);//这里不需要使用compareAndSwap,不存在并发写
                         }
                         break;
                     }
@@ -60,20 +61,19 @@ public class AlternateOutput {
 
     /**
      * 使用ReentrantLock配合2个Condition使用
-     * @author W.Y.J
-     * @Date 2022/3/9 16:11
+     *
      * @param
      * @return void
+     * @author W.Y.J
+     * @Date 2022/3/9 16:11
      */
     @Test
     public void test1() throws InterruptedException {
-
         ReentrantLock lock = new ReentrantLock();
         Condition zimuCondition = lock.newCondition();
         Condition numCondition = lock.newCondition();
 
         Thread numThread = new Thread(() -> {
-
             for (int i = 0; i < num.length; i++) {
                 try {
                     lock.lock();
@@ -88,9 +88,7 @@ public class AlternateOutput {
             }
         });
 
-
         Thread zimuThread = new Thread(() -> {
-
             for (int i = 0; i < zimu.length; i++) {
                 try {
                     lock.lock();
@@ -102,22 +100,21 @@ public class AlternateOutput {
                 } finally {
                     lock.unlock();
                 }
-
             }
         });
         //注意两个线程的启动顺序
         numThread.start();
         zimuThread.start();
-
     }
 
 
     /**
      * 使用synchronized
-     * @author W.Y.J
-     * @Date 2022/3/9 16:16
+     *
      * @param
      * @return void
+     * @author W.Y.J
+     * @Date 2022/3/9 16:16
      */
     @Test
     public void test3() {
@@ -159,10 +156,11 @@ public class AlternateOutput {
 
     /**
      * 使用LockSupport,这种语法比较简单
-     * @author W.Y.J
-     * @Date 2022/3/9 16:17
+     *
      * @param
      * @return void
+     * @author W.Y.J
+     * @Date 2022/3/9 16:17
      */
     @Test
     public void test4() {

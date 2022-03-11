@@ -2,8 +2,8 @@ package com.wangyj.problems.dynamic_programming;
 
 /* *
  *
- * You are climbing a stair case. It takes n steps to reach to the top.
- * Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+ * https://leetcode-cn.com/problems/climbing-stairs/
+ * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
  *
  * Example 1:
  * Input: 2
@@ -22,7 +22,6 @@ public class ClimbingStairs_70 {
     }
 
     public static int climbStairs(int n) {
-
         /**
          * 设opt[i]为到达第i层楼梯的方式数
          * 到达第i层有两种方式：
@@ -32,13 +31,14 @@ public class ClimbingStairs_70 {
          */
         int[] opt=new int[n+2];
         //初始化边界值
-        opt[0]=0;
         opt[1]=1;
         opt[2]=2;
+        if (n<=2){
+            return opt[n];
+        }
         for (int i=3;i<=n;i++){
             opt[i]=opt[i-1]+opt[i-2];
         }
         return opt[n];
-
     }
 }
