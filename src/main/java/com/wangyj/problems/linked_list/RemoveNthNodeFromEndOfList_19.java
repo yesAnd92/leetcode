@@ -21,7 +21,7 @@ public class RemoveNthNodeFromEndOfList_19 {
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
         /**
-         * 在对链表进行操作时，一种常用的技巧是添加一个哑节点（dummy node），它的 \textit{next}next 指针指向链表的头节点。
+         * 在对链表进行操作时，一种常用的技巧是添加一个哑节点（dummy node），它的next 指针指向链表的头节点。
          * 这样一来，我们就不需要对头节点进行特殊的判断了。
          *
          * 例如，在本题中，如果我们要删除节点 yy，我们需要知道节点 yy 的前驱节点 xx，并将 xx 的指针指向 yy 的后继节点。
