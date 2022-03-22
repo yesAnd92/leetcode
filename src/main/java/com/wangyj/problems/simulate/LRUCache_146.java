@@ -17,6 +17,9 @@ public class LRUCache_146 {
 
     /**
      * 定义一个双向链表
+     * 使用单向链表可以么？为什hash里存放key值了，还要在node里还要存放key？
+     * 单向节点在任意节点移除节点做不到时间复杂度o(1),双向节点就可以方便访问被删除节点的前后节点进行操作。
+     * node里存放key是为了方便淘汰旧节点时，直接拿到旧节点
      */
     class Node {
         private Node pre, next;
@@ -61,8 +64,11 @@ public class LRUCache_146 {
     }
 
 
+    //双相对列
     DoubleNodeList nodeList ;
+    //哈希表
     Map<Integer,Node> nodeMap;
+    //容量限制
     private int capacity;
 
     public LRUCache_146(int capacity) {
@@ -72,9 +78,8 @@ public class LRUCache_146 {
     }
 
     public int get(int key) {
-        if (!nodeMap.containsKey(key)){
+        if (!nodeMap.containsKey(key))
             return -1;
-        }
         Node node = nodeMap.get(key);
         //获取过key的值，将节点移到链表最后
         nodeList.remove(node);
@@ -83,7 +88,6 @@ public class LRUCache_146 {
     }
 
     public void put(int key, int value) {
-
         if(nodeMap.containsKey(key)){
             //更新操作
             Node node = nodeMap.get(key);
@@ -101,7 +105,6 @@ public class LRUCache_146 {
                 nodeList.remove(firstNode);
                 nodeMap.remove(firstNode.key);
             }
-
         }
     }
 
