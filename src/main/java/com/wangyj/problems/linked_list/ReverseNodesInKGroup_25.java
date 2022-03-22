@@ -60,24 +60,30 @@ public class ReverseNodesInKGroup_25 {
     public ListNode reverseKGroup2(ListNode head, int k) {
         ListNode dummy = new ListNode();
         dummy.next=head;
+        //初始化pre和end都指向dummy。pre指每次要翻转的链表的头结点的上一个节点。end指每次要翻转的链表的尾节点
         ListNode pre = dummy;
         ListNode end = dummy;//记录每次累计到k，需要反转的位置
         while (end.next != null) {
-            //当k个节点时，需要反转
+            //循环k次，找到需要翻转的链表的结尾,这里每次循环要判断end是否等于空,因为如果为空，end.next会报空指针异常。
+            //dummy->1->2->3->4->5 若k为2，循环2次，end指向2
             for (int i = 0; i < k && end != null; i++) {
                 end = end.next;
             }
+            //如果end==null，即需要翻转的链表的节点数小于k，不执行翻转。
             if (end == null) break;
             //记录下次开始的位置
             ListNode next = end.next;
-            //需要反转开始的位置
+            //需要反转开始的位置,因为反转需要知道这一段的头
             ListNode start = pre.next;
             //切断后续联系
             end.next = null;
-            //反转
+            //翻转链表,pre.next指向翻转后的链表。1->2 变成2->1。 dummy->2->1
             pre.next = reverse(start);
+            //反转后，start就成了这一段链表的最后一个节点，它后边应该接next节点重新链接
             start.next=next;
+            //将pre换成下次要翻转的链表的头结点的上一个节点。即start
             pre=start;
+            //翻转结束，将end置为下次要翻转的链表的头结点的上一个节点。即start
             end=pre;
         }
 
