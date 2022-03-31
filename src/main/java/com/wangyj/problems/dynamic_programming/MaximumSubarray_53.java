@@ -83,6 +83,7 @@ public class MaximumSubarray_53 {
         for (int i = 1; i < length; i++) {
             //要么是当前元素加上前边元素的最大值，要么就是当前元素自己是最大值
             dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+            //当然也可以不包含这个i元素，所有需要再次和历史最大进行比较
             max = Math.max(max, dp[i]);
         }
         return max;

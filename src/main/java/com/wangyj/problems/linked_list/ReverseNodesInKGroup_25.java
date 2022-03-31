@@ -27,7 +27,7 @@ public class ReverseNodesInKGroup_25 {
         while (head != null) {
             ListNode tmp = head;
             head = head.next;
-            tmp.next = null;//要讲下一个节点置空
+            tmp.next = null;//要将下一个节点置空
             //遍历放到栈中
             stack.push(tmp);
             //当栈容量大小=k时，需要反转
@@ -54,12 +54,12 @@ public class ReverseNodesInKGroup_25 {
 
 
     /**
-     * 不适用栈，直接反转链表
+     * 不使用栈，直接反转链表
      * https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/tu-jie-kge-yi-zu-fan-zhuan-lian-biao-by-user7208t/
      */
     public ListNode reverseKGroup2(ListNode head, int k) {
         ListNode dummy = new ListNode();
-        dummy.next=head;
+        dummy.next = head;
         //初始化pre和end都指向dummy。pre指每次要翻转的链表的头结点的上一个节点。end指每次要翻转的链表的尾节点
         ListNode pre = dummy;
         ListNode end = dummy;//记录每次累计到k，需要反转的位置
@@ -70,7 +70,8 @@ public class ReverseNodesInKGroup_25 {
                 end = end.next;
             }
             //如果end==null，即需要翻转的链表的节点数小于k，不执行翻转。
-            if (end == null) break;
+            if (end == null)
+                break;
             //记录下次开始的位置
             ListNode next = end.next;
             //需要反转开始的位置,因为反转需要知道这一段的头
@@ -79,12 +80,12 @@ public class ReverseNodesInKGroup_25 {
             end.next = null;
             //翻转链表,pre.next指向翻转后的链表。1->2 变成2->1。 dummy->2->1
             pre.next = reverse(start);
-            //反转后，start就成了这一段链表的最后一个节点，它后边应该接next节点重新链接
-            start.next=next;
+            //反转后，start就成了这一段链表的最后一个节点（这块其实是不容易想到），它后边应该接next节点重新链接
+            start.next = next;
             //将pre换成下次要翻转的链表的头结点的上一个节点。即start
-            pre=start;
+            pre = start;
             //翻转结束，将end置为下次要翻转的链表的头结点的上一个节点。即start
-            end=pre;
+            end = pre;
         }
 
         return dummy.next;
@@ -94,7 +95,7 @@ public class ReverseNodesInKGroup_25 {
     private ListNode reverse(ListNode start) {
 
         ListNode pre = null;
-        ListNode curr=start;
+        ListNode curr = start;
         while (curr != null) {
             ListNode next = curr.next;
             curr.next = pre;
@@ -113,5 +114,6 @@ public class ReverseNodesInKGroup_25 {
         ListNodeUtil.print(result);
 
     }
+
 
 }
