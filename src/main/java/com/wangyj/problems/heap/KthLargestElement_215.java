@@ -4,6 +4,7 @@ package com.wangyj.problems.heap;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 import java.util.Random;
 
 /**
@@ -13,6 +14,33 @@ import java.util.Random;
  * @Date 2021/7/3 6:10 下午
  */
 public class KthLargestElement_215 {
+
+
+    /***********************************************借助PriorityQueue利用堆思想**************************************************/
+
+    public int findKthLargestPriority(int[] nums, int k) {
+
+
+        /**
+         *  使用最小堆，这样队头元素是最小的，新进入的元素比队头的大，就进入队里，
+         *  所有元素遍历后，队头的就是第k个大的元素
+         */
+        PriorityQueue<Integer> heap= new PriorityQueue<>(k);
+
+        for (int num : nums) {
+
+            if (heap.size()<k||heap.peek()<num){
+                heap.offer(num);
+                if (heap.size()>k)
+                    heap.poll();
+            }
+        }
+        return heap.poll();
+    }
+
+
+
+
 
     /*****************************************************快排选择法**************************************************/
 
@@ -127,6 +155,8 @@ public class KthLargestElement_215 {
         int[] nums2 = new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6};
         System.out.println(largestTopHeap(nums2, 4));
         System.out.println(largestTopHeap(nums2, 9));
+        System.out.println(findKthLargestPriority(nums2, 4));
+        System.out.println(findKthLargestPriority(nums2, 9));
     }
 
 }

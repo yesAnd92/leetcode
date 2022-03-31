@@ -50,11 +50,16 @@ public class MinisterKNumber_offer40 {
         if (k == 0) return new int[]{};
         quicksort(arr,k,0,arr.length-1);
 
-        System.out.println(arr);
-        return null;
+        int[] ans=new int[k];
+        for (int i = 0; i < k; i++) {
+            ans[i]=arr[i];
+        }
+        return ans;
     }
 
 
+
+    //双指针快排
     private void quicksort(int[] arr, int k, int left, int right) {
 
         if (left>right)
@@ -66,25 +71,34 @@ public class MinisterKNumber_offer40 {
             //最小的k个数一定在[left,pivotIndex-1]中
             quicksort(arr,k,left,pivotIndex-1);
         }else{
-            //最小的k个数一定在[left,pivotIndex]和[pivotIndex+1，k]中
+            /**
+             * [left,pivotIndex]中左右的数一定都是k个最小数中，这部分不用再进行筛选，
+             * [pivotIndex+1，right]中有一部分在k个最小数中，还需要 继续进行筛选
+             */
             quicksort(arr,k,pivotIndex+1,right);
         }
     }
 
-    private int partition(int[] arr, int left, int right) {
-        int pivot = arr[right];
+
+
+    private int partition(int[] arr, int start, int end) {
+        int left=start;
+        int right=end;
+        int pivot = arr[end];
         while (left < right) {
             while (arr[left]<pivot&&left<right){
                 left++;
             }
-            while (arr[right]>pivot&&left<right){
+            while (arr[right]>=pivot&&left<right){
                 right--;
             }
+            if (left<right){
+
             swap(arr,left,right);
+            }
         }
-        int pivotIndex=left++;
-        arr[pivotIndex]=pivot;
-        return pivotIndex;
+        swap(arr,right,end);
+        return right;
     }
 
 
@@ -96,8 +110,11 @@ public class MinisterKNumber_offer40 {
 
     @Test
     public void test() {
-
-        int[] leastNumbers = getLeastNumbers2(new int[]{1, 2, 8, 2, 3, 4, 5, 6, 7}, 4);
+        int[] leastNumbers = getLeastNumbers(new int[]{4, 2, 8, 2, 3, 4, 5, 6, 7}, 3);
         Arrays.stream(leastNumbers).forEach(System.out::print);
+
+        int[] leastNumbers2 = getLeastNumbers2(new int[]{4, 2, 8, 2, 3, 4, 5, 6, 7}, 3);
+        Arrays.stream(leastNumbers2).forEach(System.out::print);
+
     }
 }
