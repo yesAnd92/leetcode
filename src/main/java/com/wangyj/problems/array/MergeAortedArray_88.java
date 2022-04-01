@@ -8,6 +8,7 @@ import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
+ * 合并两个有序的数组
  * https://leetcode-cn.com/problems/merge-sorted-array/
  */
 public class MergeAortedArray_88 {
