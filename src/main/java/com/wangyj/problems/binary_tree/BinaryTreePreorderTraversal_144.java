@@ -1,6 +1,6 @@
 package com.wangyj.problems.binary_tree;
 
-import com.wangyj.problems.common.Array2BtUtils;
+import com.wangyj.problems.common.TreeNodeUtils;
 import com.wangyj.problems.common.TreeNode;
 import org.junit.Test;
 
@@ -44,7 +44,7 @@ public class BinaryTreePreorderTraversal_144 {
 
     @Test
     public void test(){
-        TreeNode head = Array2BtUtils.array2BT(new Integer[]{1, 2, 5, 3, 4, null, 6, 7});
+        TreeNode head = TreeNodeUtils.array2BT(new Integer[]{1, 2, 5, 3, 4, null, 6, 7});
         System.out.println(preorderTraversal(head));
     }
 }

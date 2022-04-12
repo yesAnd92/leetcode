@@ -1,14 +1,12 @@
 package com.wangyj.problems.binary_tree;
 
-import com.wangyj.problems.common.Array2BtUtils;
+import com.wangyj.problems.common.TreeNodeUtils;
 import com.wangyj.problems.common.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Stack;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 二叉树的后序遍历
@@ -57,7 +55,7 @@ public class BinaryTreePostorderTraversal_145 {
 
     @Test
     public void test() {
-        TreeNode head = Array2BtUtils.array2BT(new Integer[]{1, 2, 5, 3, 4, null, 6, 7});
+        TreeNode head = TreeNodeUtils.array2BT(new Integer[]{1, 2, 5, 3, 4, null, 6, 7});
         System.out.println(postorderTraversal(head));
     }
 }

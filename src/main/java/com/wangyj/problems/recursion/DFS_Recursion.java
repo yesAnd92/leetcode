@@ -1,6 +1,6 @@
 package com.wangyj.problems.recursion;
 
-import com.wangyj.problems.common.Array2BtUtils;
+import com.wangyj.problems.common.TreeNodeUtils;
 import com.wangyj.problems.common.TreeNode;
 import org.junit.Test;
 
@@ -52,7 +52,7 @@ public class DFS_Recursion {
     @Test
     public void demo() {
         //构造二叉树
-        TreeNode node = Array2BtUtils.array2BT(new Integer[]{1, 2, 5, 3, 4, null, 6, 7});
+        TreeNode node = TreeNodeUtils.array2BT(new Integer[]{1, 2, 5, 3, 4, null, 6, 7});
         System.out.println("\n先序遍历:");
         firstRoot(node);
 

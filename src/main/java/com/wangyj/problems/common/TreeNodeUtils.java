@@ -13,7 +13,7 @@ import java.util.Queue;
  * @author W.Y.J
  * @Date 2021/7/10 9:49 上午
  */
-public class Array2BtUtils {
+public class TreeNodeUtils {
 
 
     /**
@@ -24,7 +24,7 @@ public class Array2BtUtils {
      * @author W.Y.J
      * @Date 2021/7/10 10:41 上午
      */
-    public static TreeNode array2BT(Integer[] nums) {
+    public static TreeNode array2BT(Integer... nums) {
 
         int length = nums.length;
         int index = 0;

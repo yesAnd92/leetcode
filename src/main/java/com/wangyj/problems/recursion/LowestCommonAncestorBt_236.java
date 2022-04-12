@@ -1,6 +1,6 @@
 package com.wangyj.problems.recursion;
 
-import com.wangyj.problems.common.Array2BtUtils;
+import com.wangyj.problems.common.TreeNodeUtils;
 import com.wangyj.problems.common.TreeNode;
 import org.junit.Test;
 
@@ -114,7 +114,7 @@ public class LowestCommonAncestorBt_236 {
 //        Integer[] nums =new Integer[]{3,5,1,6,2,0,8,null,null,7,4};
 //        Integer[] nums =new Integer[]{1,2};
         Integer[] nums = new Integer[]{0, null, 1, null, 2, null, 3, null, 4, null, 5, null, 6, null, 7, null, 8, null, 9, null, 10, null, 11, null, 12, null, 13, null, 14, null, 15, null, 16, null, 17, null, 18, null, 19, null, 20, null, 21, null, 22, null, 23, null, 24, null, 25};
-        TreeNode root = Array2BtUtils.array2BT(nums);
+        TreeNode root = TreeNodeUtils.array2BT(nums);
 //        TreeNode re = lowestCommonAncestor(root, new TreeNode(5), new TreeNode(1));
         TreeNode re = lowestCommonAncestor(root, new TreeNode(1), new TreeNode(2));
         System.out.println(re.val);
