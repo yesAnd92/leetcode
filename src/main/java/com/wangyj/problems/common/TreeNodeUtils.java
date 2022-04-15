@@ -1,11 +1,15 @@
 package com.wangyj.problems.common;
 
 
+
 import com.wangyj.problems.common.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.Queue;
+import java.util.List;
 
 /**
  * 数组按照行顺序转换为二叉树
@@ -62,11 +66,33 @@ public class TreeNodeUtils {
     }
 
 
+    public static  void printTree(TreeNode treeNode){
+
+        List<Integer> ans = new ArrayList<>();
+        Deque<TreeNode> deque = new ArrayDeque();
+        deque.addLast(treeNode);
+
+        while (!deque.isEmpty()){
+            TreeNode tmp = deque.pollFirst();
+            if (tmp.left!=null){
+                deque.addLast(tmp.left);
+            }
+            if (tmp.right!=null){
+                deque.addLast(tmp.right);
+            }
+            ans.add(tmp.val);
+        }
+        System.out.println(ans);
+    }
+
+
     @Test
     public void test() {
         Integer[] nums = new Integer[]{1, 2, 3, null, 4, 5, 6};
 
         TreeNode treeNode = array2BT(nums);
         System.out.println(treeNode.left.right.val);
+
+        printTree(treeNode);
     }
 }
