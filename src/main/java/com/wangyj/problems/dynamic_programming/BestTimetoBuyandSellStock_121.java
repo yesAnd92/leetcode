@@ -1,6 +1,8 @@
 package com.wangyj.problems.dynamic_programming;
 
 
+import org.junit.Test;
+
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  * Say you have an array for which the ith element is the price of a given stock on day i.
@@ -19,34 +21,28 @@ package com.wangyj.problems.dynamic_programming;
  */
 public class BestTimetoBuyandSellStock_121 {
 
-    public static void main(String[] args) {
-        int[] pices = new int[]{2,1,2,1,0,1,2};
-        System.out.println(maxProfit(pices));
-    }
 
-    //
 
     /**
      * dynamic programming
-     * 动态方程 maxProfit=max(prices[i]-opt[i-1])
+     * 动态方程 maxProfit=max(prices[i]-dp[i-1])
      */
-    public static int dp(int[] prices) {
+    public  int dp(int[] prices) {
 
-        //设opt[i]为从0到i中的最小值
-        int[] opt = new int[prices.length+1];
-        //处理边界值
-        if (prices.length<2) return 0;
-        if (prices.length==2) return prices[1]-prices[0]>0?prices[1]-prices[0]:0;
-        opt[1]=Math.min(prices[0],prices[1]);
-        int maxProfit = prices[1]-opt[1];
-        for (int i=2 ;i<prices.length;i++){
-            //记录最大值
-            int maxTmp=prices[i]-opt[i-1];
-            if (maxTmp>maxProfit) maxProfit=maxTmp;
-            //记录最小值
-            opt[i]=prices[i]<opt[i-1]?prices[i]:opt[i-1];
+        int length = prices.length;
+        //设dp[i]表示从0到i中这些个数值的最小值
+        int[] dp = new int[length];
+        int ans =0;
+
+        dp[0]=prices[0];
+        for (int i = 1; i < length; i++) {
+            //比较利益最大的一种情况
+            if (prices[i]-dp[i-1]>ans)
+                ans=prices[i]-dp[i-1];
+
+            dp[i]=Math.min(prices[i],dp[i-1]);
         }
-        return maxProfit;
+        return ans;
     }
 
     /**
@@ -54,7 +50,7 @@ public class BestTimetoBuyandSellStock_121 {
      * 一趟循环下来只需要记录当前数字前面的数字中的最小值即可
      * 故只需一个变量记录即可
      */
-    public static int maxProfit(int[] prices) {
+    public  int maxProfit(int[] prices) {
         if (prices.length<2) return 0;
         if (prices.length==2) return prices[1]-prices[0]>0?prices[1]-prices[0]:0;
         int opt =prices[0];
@@ -67,5 +63,13 @@ public class BestTimetoBuyandSellStock_121 {
             if (opt>prices[i]) opt =prices[i];
         }
         return maxProfit;
+    }
+
+
+
+    @Test
+    public  void main(String[] args) {
+        int[] pices = new int[]{2,1,2,1,0,1,2};
+        System.out.println(maxProfit(pices));
     }
 }

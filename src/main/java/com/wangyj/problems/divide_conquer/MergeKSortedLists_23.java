@@ -26,13 +26,7 @@ public class MergeKSortedLists_23 {
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         //构造一个优先级队列
-        PriorityQueue<ListNode> queue = new PriorityQueue<>((o1, o2) -> {
-            if (o1.val < o2.val)
-                return -1;
-            else if (o1.val == o2.val)
-                return 0;
-            else return 1;
-        });
+        PriorityQueue<ListNode> queue = new PriorityQueue<>((o1, o2) -> o1.val-o2.val);
 
         //设置一个哑节点
         ListNode ans = new ListNode(0);
@@ -98,7 +92,7 @@ public class MergeKSortedLists_23 {
             return lists[left];
         if (left > right)
             return null;
-        int mid = (left + right) >> 1;
+        int mid = (left + right) >>> 1;
         //写递归时，只考虑当前两个链表合并，至于这两个链表怎么合并由后续的递归进行处理
         return mergeTwoList(divideMergeListNode(lists, left, mid), divideMergeListNode(lists, mid + 1, right));
     }
