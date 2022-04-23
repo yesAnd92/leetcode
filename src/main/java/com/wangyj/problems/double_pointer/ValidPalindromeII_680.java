@@ -2,7 +2,7 @@ package com.wangyj.problems.double_pointer;
 
 import org.junit.Test;
 
-public class _680 {
+public class ValidPalindromeII_680 {
 
     public boolean validPalindrome(String s) {
 
