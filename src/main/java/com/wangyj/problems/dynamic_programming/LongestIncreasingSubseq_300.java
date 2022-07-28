@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * 最长递增子序列
  * https://leetcode-cn.com/problems/longest-increasing-subsequence/
- *
+ * gst例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
  * @author W.Y.J
  * @Date 2021/8/12 9:19
  */
