@@ -25,7 +25,7 @@ public class DFS_Recursion {
 
 
     /**
-     * 先序遍历
+     * 中序遍历
      * @param node
      */
     public void middleRoot(TreeNode node) {
