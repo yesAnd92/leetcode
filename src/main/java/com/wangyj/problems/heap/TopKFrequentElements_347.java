@@ -2,9 +2,7 @@ package com.wangyj.problems.heap;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * https://leetcode-cn.com/problems/top-k-frequent-elements/
@@ -14,7 +12,40 @@ import java.util.Map;
  */
 public class TopKFrequentElements_347 {
 
+
+    /**
+     * 直接借助优先接队列，尤其是在面试的时候没必要自己进行堆排实现
+     * @param nums
+     * @param k
+     * @return
+     */
     public int[] topKFrequent(int[] nums, int k) {
+
+        Map<Integer, Integer> statMap = new HashMap<>();
+        for (int num : nums) {
+            statMap.put(num, statMap.getOrDefault(num, 0) + 1);
+        }
+        //小顶堆里直接存放Map.Entry<Integer, Integer>，重写compare接口
+        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
+
+
+        //使用小顶堆，小于队头元素的都不符合条件
+        for (Map.Entry<Integer, Integer> entry : statMap.entrySet()) {
+            if (queue.size() < k || queue.peek().getValue() < entry.getValue()) {
+                queue.add(entry);
+            }
+            //超过k个，丢弃队头元素
+            if (queue.size() > k) {
+                queue.poll();
+            }
+        }
+
+        int[] ans = queue.stream().mapToInt(Map.Entry::getKey).toArray();
+
+        return ans;
+    }
+
+    public int[] topKFrequent2(int[] nums, int k) {
 
         int[] re= new int[k];
         Map<Integer, Integer> map = new HashMap<>();
