@@ -16,6 +16,9 @@ public class BubbleSort {
 
     /**
      * 冒泡排序
+     * 这里需要理解下两层循环的，目的
+     * 第一层：每个数字都要遍历一遍
+     * 第二层：已经排序过的无需再排，所以要length-i-1
      * @author W.Y.J
      * @Date 2021/7/2 11:27 下午
      * @param arr

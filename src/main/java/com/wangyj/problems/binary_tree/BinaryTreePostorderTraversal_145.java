@@ -11,6 +11,7 @@ import java.util.Stack;
 /**
  * 二叉树的后序遍历
  * https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
+ * 这种思路可以解决先序  中序  后序三总遍历树的方式，非常适合面试时使用，比较好理解好讲述
  */
 public class BinaryTreePostorderTraversal_145 {
 
