@@ -83,12 +83,12 @@ public class LongestPalindromicSubstring_05 {
             dp[i][i] = true;
         }
 
-        //因为i<j,所有只需对矩阵的右上角进行数据处理
+        //因为i<j,所以只需对矩阵的右上角进行数据处理
         for (int j = 1; j < length; j++) {
             for (int i = 0; i < j; i++) {
                 //首尾字符相等
                 if (sArr[i] == sArr[j]) {
-                    //如果单个字符或者区间长度为2且相等，这两种情况都是回文串
+                    //如果两个字符相等，且字符距离小于等于2，比如 'aa','aba'，这两种情况都可以断定是回文串
                     if (j - i <= 2) {
                         dp[i][j] = true;
                     } else {
@@ -96,14 +96,12 @@ public class LongestPalindromicSubstring_05 {
                         dp[i][j] = dp[i + 1][j - 1];
                     }
                 }
-
                 if (dp[i][j] && (j - i + 1) > maxLength) {
                     maxIndex = i;
                     maxLength = j - i + 1;
                 }
             }
         }
-
         return s.substring(maxIndex, maxIndex + maxLength);
     }
 
@@ -140,7 +138,6 @@ public class LongestPalindromicSubstring_05 {
 
         int maxLength = 1;//最短也是有一个字符
         int maxIndex = 0;
-        char[] sArr = s.toCharArray();
 
         //遍历每个元素作为中心进行扩散，首尾元素无法扩散
         for (int i = 0; i < length - 1; i++) {
