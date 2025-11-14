@@ -15,7 +15,7 @@ public class GenerateParentheses_22 {
 
     public List<String> generateParenthesis(int n) {
 
-        dfs("", 0, 0, n);
+        //dfs("", 0, 0, n);
         return ans;
     }
 
