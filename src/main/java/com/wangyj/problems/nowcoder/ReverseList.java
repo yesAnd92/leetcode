@@ -31,6 +31,38 @@ public class ReverseList {
         return pre;
     }
 
+
+    /**
+     * 我觉得这种思路更适合我
+     * 定义虚节点dummy，遍历链表不断插入到dummy后边
+     * dummy->null
+     * dummy->1->null
+     * dummy->2->1->null ...
+     *
+     */
+    public ListNode ReverseList2(ListNode head) {
+
+        ListNode dummy=new ListNode(-1);
+        dummy.next=null;
+
+        ListNode curr=head;
+        while (curr!=null){
+            //记录原有俩表的下一个节点
+            ListNode currNext = curr.next;
+
+            //插入dummy节点后边
+            ListNode next = dummy.next;
+            dummy.next=curr;
+            curr.next=next;
+
+            //原有链表后移
+            curr=currNext;
+
+        }
+
+        return dummy.next;
+    }
+
     @Test
     public void test() {
         ListNode pre = new ListNode(-1);
