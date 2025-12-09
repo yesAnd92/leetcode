@@ -45,8 +45,7 @@ public class ThreeNumSum {
             while (left < length && left < right) {
                 int sum = num[i] + num[left] + num[right];
                 if (sum == 0) {
-                    ArrayList<Integer> ele = new ArrayList() {
-                    };
+                    ArrayList<Integer> ele = new ArrayList() {};
                     //考虑连续重复导致的问题
                     while (left<right&&num[left+1]==num[left]){
                         left++;
