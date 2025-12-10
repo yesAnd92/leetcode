@@ -32,6 +32,7 @@ public class IsBalanceTree {
             return -1;
 
 
+        //返回最大深度
         return  1 + Math.max(rightDepth, leftDepth);
     }
 }
