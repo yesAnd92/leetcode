@@ -25,8 +25,10 @@ public class ChengShuiZuiDuo {
                 re = water;
             }
 
-            //由于短板决定容量，假设当前left为短板，我想找更大的水量，理论上只能left右移才有可能找到更大的水量，因为如果right左移
-            //短板还是left，但是两个指针的距离更小了，肯定比当前水量更小。
+            //无论我们移动 left 还是 right，宽度 (right - left) 都一定会减小。
+            //面积要想比当前更大，高度 min(height[left], height[right]) 必须增大，以弥补宽度减小带来的损失。
+            //当前的高度是由 height[left] 和 height[right] 中较小的那个决定的。我们称它为 h_min。
+            //如果我们移动高度较大的那个指针，新的高度仍然是 min(h_min, 新指针的高度)。这个值不可能超过 h_min。
             if (height[left]<height[right]){
                 left++;
             }else {
